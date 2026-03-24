@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="card">
+    <h2>用户登录</h2>
+    <p class="ok" th:if="${msg}" th:text="${msg}"></p>
+    <p class="error" th:if="${error}" th:text="${error}"></p>
+    <form th:action="@{/login}" method="post" th:object="${form}">
+        <label>用户名</label>
+        <input type="text" th:field="*{username}" placeholder="请输入用户名">
+        <small class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></small>
+
+        <label>密码</label>
+        <input type="password" th:field="*{password}" placeholder="请输入密码">
+        <small class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
+
+        <button type="submit">登录</button>
+    </form>
+    <p>还没有账号？<a th:href="@{/register}">去注册</a></p>
+</div>
+</body>
+</html>
