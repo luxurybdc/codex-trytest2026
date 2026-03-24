@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    cache: false
+
+jwt:
+  secret: this-is-a-demo-secret-key-for-jwt-signing-32-byte
+  expire-minutes: 120
